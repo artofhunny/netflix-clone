@@ -1,7 +1,12 @@
+import { useNavigate } from "react-router-dom";
+import Header from "./Header";
+
 const Browse = () => {
+    
+
     return(
-        <div>
-            <p>Browse</p>
+        <div className="">
+            <Header />
         </div>
     );
 }
