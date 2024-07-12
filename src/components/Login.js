@@ -49,8 +49,7 @@ const Login = () => {
                             displayName: displayName,
                             email: email
                         }));
-                        navigate("/browse");
-                        
+
                         // ...
                       }).catch((error) => {
                         // An error occurred
@@ -75,8 +74,6 @@ const Login = () => {
                     // Signed in 
                     const user = userCredential.user;
                     // ...
-                    navigate("/browse");
-                    console.log(user);
                 })
                 .catch((error) => {
                     const errorCode = error.code;
