@@ -3,9 +3,9 @@ import Header from "./Header";
 import { dataValidation } from "./validation";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "./utils/firebase";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { addUser } from "./utils/userSlice";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { BG_IMG } from "./utils/constants";
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
     const password = useRef(null);
     const name = useRef(null);
     const [errorMessage, setErrorMessage] = useState(null);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const dispatch = useDispatch();
     // const userData = useSelector((store) => store.user);
 
@@ -36,7 +36,7 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
-                    console.log(user);
+                    // console.log(user);
 
                     updateProfile(user, {
                         displayName: name.current.value, 
@@ -79,7 +79,7 @@ const Login = () => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
 
-                    setErrorMessage(errorCode + " " + errorMessage);
+                    setErrorMessage(errorCode + errorMessage);
                 });
         }
 

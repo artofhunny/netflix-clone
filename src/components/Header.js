@@ -40,11 +40,11 @@ const Header = () => {
       }, []);
 
     return(
-        <header className="flex bg-gradient-to-b from-black justify-between items-center " >
-            <img src={NETFLIX_LOGO} className="pl-32 z-20 contrast-150 py-3 w-80" alt="" />
+        <header className="flex bg-gradient-to-b absolute w-screen from-black justify-between items-center " >
+            <img src={NETFLIX_LOGO} className="pl-12 z-20 contrast-150 py-3 w-44" alt="" />
 
             { user && (<div className="pr-20 z-20 flex gap-4">
-                <img className="w-12 rounded" src="https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp" alt="user-icon" />
+                <img className="w-8 rounded" src="https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp" alt="user-icon" />
                 <button onClick={handelLogOut} className="bg-red-600 contrast-125 text-white self-center px-3 py-1 rounded">Log Out</button>
             </div>)}
         </header>

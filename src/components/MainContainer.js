@@ -4,16 +4,16 @@ import VideoContainer from "./VideoContainer";
 
 const MainContainer = () => {
 
-    const movies = useSelector((store) => store.movies.nowPlayingMovies);
+    const movies = useSelector((store) => store?.movies?.nowPlayingMovies);
     if(movies === null) return;
 
     
-    const { original_title, overview, id } = movies[5];
-    // console.log(original_title, overview);
+    const { original_title, overview, id } = movies[4];
+    // console.log(id);
     
     return (
         <section 
-        className="absolute top-0"
+        className="overflow-x-hidden overflow-y-hidden"
         >
             
             <TitleContainer title={original_title} des={overview} />
