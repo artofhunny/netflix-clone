@@ -8,8 +8,12 @@ import SecondaryContainer from "./SecondaryCongtainer";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useUpcomingMovie from "../hooks/useUpcomingMovies";
 import useTopRated from "../hooks/useTopRated";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Browse = () => {
+
+    // const location = useLocation();
+    // console.log(location.pathname);
 
     useNowPlayingMovies();
     usePopularMovies();
@@ -17,10 +21,12 @@ const Browse = () => {
     useTopRated();
 
     return(
-        <div className="overflow-x-hidden">
+        <div className="overflow-x-hidden bg-zinc-950 font-bold text-white">
             <Header />
-            <MainContainer />
-            <SecondaryContainer />
+            {/* <MainContainer />
+            <SecondaryContainer /> */}
+            <Outlet />
+            
         </div>
     );
 }
