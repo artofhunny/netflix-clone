@@ -9,6 +9,7 @@ import usePopularMovies from "../hooks/usePopularMovies";
 import useUpcomingMovie from "../hooks/useUpcomingMovies";
 import useTopRated from "../hooks/useTopRated";
 import { Outlet, useLocation } from "react-router-dom";
+import Body from "./Body";
 
 const Browse = () => {
 
@@ -23,9 +24,9 @@ const Browse = () => {
     return(
         <div className="overflow-x-hidden bg-zinc-950 font-bold text-white">
             <Header />
-            {/* <MainContainer />
-            <SecondaryContainer /> */}
-            <Outlet />
+            <MainContainer />
+            <SecondaryContainer />
+            {/* <Outlet /> */}
             
         </div>
     );

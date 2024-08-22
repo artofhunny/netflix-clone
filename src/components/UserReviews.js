@@ -87,15 +87,15 @@ const UserReviews = () => {
     };
 
     return (
-        <div className="px-5 bg-black">
-            <h1 className="text-4xl bg-black px-3 py-3">User Reviews</h1>
+        <div className="w-full sm:w-[340px] sm:min-w-[340px]  lg:w-[520px] lg:min-w-[520px] px-2 lg:px-5 bg-black">
+            <h1 className="text-md sm:text-2xl lg:text-4xl mt-2 bg-black py-1 sm:px-2 sm:py-2 lg:px-3 lg:py-3">User Reviews</h1>
 
             <ReviewList reviews={reviews} />
 
-            <div className="px-3 py-3 bg-black">
+            <div className="py-2 sm:px-2 sm:py-2 lg:px-3 lg:py-3 bg-black">
                 {!showInput && (
-                    <div onClick={handleAddReview} className="inline-flex items-center gap-2 py-2 px-4 cursor-pointer rounded-md bg-zinc-900">
-                        <span className="material-symbols-outlined">add</span>
+                    <div onClick={handleAddReview} className="inline-flex items-center gap-1 px-2 py-1 text-xs font-normal sm:text-lg sm:py-1 sm:px-2 lg:text-xl lg:py-2 lg:px-4 cursor-pointer rounded-md bg-zinc-900">
+                        <span className="material-symbols-outlined font-normal text-xs sm:text-lg lg:text-xl">add</span>
                         <span>Add Review</span>
                     </div>
                 )}

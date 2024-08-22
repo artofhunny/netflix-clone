@@ -25,21 +25,21 @@ const ReviewBox = ({ review }) => {
 
     
     return (
-      <div className="bg-gray-800 flex justify-between p-4 rounded-lg shadow-lg">
+      <div className="bg-gray-800 flex justify-between p-2 sm:p-3 lx:p-4 rounded-lg shadow-lg">
         <div>
-            <div className="flex items-center mb-2">
-            {/* <div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-600 flex items-center justify-center text-lg font-bold">
-                {review.user[0].toUpperCase()}
-            </div> */}
+            <div className="flex items-center sm:mb-2 lg:mb-2">
+                {/* <div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-600 flex items-center justify-center text-lg font-bold">
+                    {review.user[0].toUpperCase()}
+                </div> */}
 
-            <img className="flex-shrink-0 h-10 w-10 rounded-full" src="/avatar icon.png" alt="user-icon" />
+                <img className="flex-shrink-0 w-6 self-start sm:w-6 lg:w-10 rounded-full" src="/avatar icon.png" alt="user-icon" />
 
-            <div className="ml-3">
-                {/* <p className="text-sm font-medium">{review.user}</p> */}
-                <p className="text-xs text-gray-400">{new Date(review?.timestamp?.toDate()).toLocaleString()}</p>
+                <div className="ml-3">
+                    {/* <p className="text-sm font-medium">{review.user}</p> */}
+                    <p className="text-[10px] sm:text-xs lg:text-xs text-gray-400">{new Date(review?.timestamp?.toDate()).toLocaleString()}</p>
+                </div>
             </div>
-            </div>
-            <p className="text-lg">{review.review_text}</p>
+            <p className="text-sm sm:text-mg lg:text-lg">{review.review_text}</p>
             {/* <p className="mt-2">Rating: {review.rating} / 5</p> */}
         </div>
 

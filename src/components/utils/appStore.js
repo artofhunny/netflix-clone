@@ -4,6 +4,7 @@ import moviesReducer from "./moviesSlice";
 import changeCssReducer from "./changeCssSlice";
 import reviewReducer from "./reviewSlice";
 import reviewSlice from "./reviewSlice";
+import routeSliceReducer from "./routeSlice";
 
 const appStore = configureStore(
     {
@@ -12,6 +13,7 @@ const appStore = configureStore(
             movies: moviesReducer,
             changeCss: changeCssReducer,
             review: reviewReducer, 
+            routeSlice: routeSliceReducer,
         }
     }
 );

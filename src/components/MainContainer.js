@@ -5,7 +5,9 @@ import VideoContainer from "./VideoContainer";
 const MainContainer = () => {
 
     const movies = useSelector((store) => store?.movies?.nowPlayingMovies);
-    if(movies === null) return;
+    // if(movies === null) return;
+    if (!movies) return null;
+
 
     
     const { original_title, overview, id } = movies[Math.floor(Math.random() * movies.length)];

@@ -7,20 +7,32 @@ const useVideoTrailer = (movieId) => {
     const [trailerKey, setTrailerKey] = useState(null);
     
     const fetchVideoTrailer = async () => {
-        const data = await fetch("https://api.themoviedb.org/3/movie/" + movieId + "/videos?", options);
-        const json = await data.json();
-        
-        const filterdTrailer = json?.results?.filter(video => video.type === "Trailer");
-        const trailer = (filterdTrailer.length) ? filterdTrailer[0] : json.results[0];  
-        (!json?.results.length) ? setTrailerKey(404) : setTrailerKey(trailer?.key);
-        // console.log(json);
+
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?`, options);
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            const json = await response.json();
+
+            if (json.results && Array.isArray(json.results)) {
+                const filteredTrailer = json.results.filter(video => video.type === "Trailer");
+                const trailer = (filteredTrailer.length) ? filteredTrailer[0] : json.results[0];
+                setTrailerKey(json.results.length ? trailer?.key : 404);
+            } else {
+                setTrailerKey(404);
+            }
+        } catch (error) {
+            console.error("Failed to fetch video trailer:", error);
+            setTrailerKey(404); // Handle error state
+        }
     }
 
-    useEffect(
-        () => {
+    useEffect(() => {
+        if (movieId) {
             fetchVideoTrailer();
-        },[]
-    );
+        }
+    }, [movieId]);
 
     return trailerKey;
 }

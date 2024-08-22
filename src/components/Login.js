@@ -5,6 +5,8 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { auth } from "./utils/firebase";
 import { useDispatch} from "react-redux";
 import { addUser } from "./utils/userSlice";
+import Body from "./Body";
+import { useNavigate } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 // import { BG_IMG } from "./utils/constants";
 
@@ -15,7 +17,7 @@ const Login = () => {
     const password = useRef(null);
     const name = useRef(null);
     const [errorMessage, setErrorMessage] = useState(null);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     // const userData = useSelector((store) => store.user);
 
@@ -49,7 +51,9 @@ const Login = () => {
                             displayName: displayName,
                             email: email
                         }));
-
+                        localStorage.setItem("currentRoute", "Home");
+                        navigate("/browse");
+                        
                         // ...
                       }).catch((error) => {
                         // An error occurred
@@ -73,6 +77,8 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
+                    localStorage.setItem("currentRoute", "Home");
+                    navigate("/browse");
                     // ...
                 })
                 .catch((error) => {
@@ -99,42 +105,42 @@ const Login = () => {
 
                 <Header />
 
-                <div className="self-center px-12 py-16 flex flex-col self-start bg-opacity-75 gap-8 bg-black">
-                    <p className=" font-bold text-4xl text-white">
+                <div className="self-center px-3 py-4 sm:px-8 sm:py-12 lg:px-12 lg:py-16 flex flex-col self-start bg-opacity-75 gap-4 mt-20 sm:gap-5 lg:gap-8 bg-black">
+                    <p className=" font-bold text-xl sm:text-2xl lg:text-4xl text-white">
                         {(isSignIn) ? "Sign In" : "Sign Up"}
                     </p>
                     {
                        !isSignIn && <input
                         type="text" 
                         ref={name}
-                        className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none text-xl px-8 py-2 text-white" 
+                        className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none sm:text-lg lg:text-xl sm:px-6 sm:py-1 lg:px-8 lg:py-2 text-white" 
                         placeholder="Full Name" 
                    />
                     }
                     <input
                          type="text"
                          ref={email}
-                         className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none text-xl px-8 py-2 text-white" 
+                         className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none sm:text-lg lg:text-xl sm:px-6 sm:py-1 lg:px-8 lg:py-2 text-white" 
                          placeholder="Email" 
                     />
 
                     <input type="password" 
                         ref={password}
-                        className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none text-xl px-8 py-2 text-white" 
+                        className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none sm:text-lg lg:text-xl sm:px-6 sm:py-1 lg:px-8 lg:py-2 text-white" 
                         placeholder="Password" />
 
                     {
                         errorMessage && 
-                        <p className="text-red-600 font-bold text-lg bg-white pl-5 py-1">
+                        <p className="text-red-600 font-bold sm:text-md lg:text-lg bg-white sm:pl-3 lg:pl-5 py-1">
                             {errorMessage}
                         </p>
                     }
 
-                    <button className="text-white rounded font-bold text-xl py-4 bg-[#ff0000]">
+                    <button className="text-white rounded font-bold sm:text-lg lg:text-xl sm:py-2 lg:py-4 bg-[#ff0000]">
                         {(isSignIn) ? "Sign In" : "Sign Up"}
                     </button>
 
-                    <p className="text-white cursor-pointer" onClick={handelToggleForm} >
+                    <p className="text-white cursor-pointer text-xs sm:text-lg lg:text-lg" onClick={handelToggleForm} >
                         {(isSignIn) ? "New to Netflix? Sign Up Now" : "Already regester? Sign In"}
                     </p>
                 </div>

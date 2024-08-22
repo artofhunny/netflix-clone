@@ -7,21 +7,28 @@ const useMovieTrailer = (vidId) => {
     const dispatch = useDispatch();
 
     const fetchVideoTrailer = async () => {
-        const data = await fetch("https://api.themoviedb.org/3/movie/" + vidId + "/videos?", options);
-        const jsonData = await data.json();
+        try{
+            const data = await fetch("https://api.themoviedb.org/3/movie/" + vidId + "/videos?", options);
+            if (!data.ok) {
+                throw new Error(`Network response was not ok: ${data.statusText}`);
+            }
+            const jsonData = await data.json();
 
-        // console.log(jsonData);
-
-        const filterdTrailer = jsonData.results.filter(ele => ele.type === "Trailer");
-        const trailer = (filterdTrailer.length) ? filterdTrailer[0] : jsonData[0];
-        // console.log(trailer);
-        // setTrailorId(trailer.key);
-        dispatch(addVideoTrailer(trailer));
+            if(jsonData.results && Array.isArray(jsonData.results)){
+                const filterdTrailer = jsonData.results.filter(ele => ele.type === "Trailer");
+                const trailer = (filterdTrailer.length) ? filterdTrailer[0] : jsonData[0];
+                dispatch(addVideoTrailer(trailer));
+            }
+        } catch(error){
+            console.log("Failed to fetch video trailer: ", error);
+        }
     }
 
     useEffect(() => {
-        fetchVideoTrailer();
-    }, []);
+        if(vidId){
+            fetchVideoTrailer();
+        }
+    }, [vidId]);
 }
 
 export default useMovieTrailer;

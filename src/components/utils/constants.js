@@ -14,3 +14,4 @@ export const POSTER_URL = "https://image.tmdb.org/t/p/w500";
 export const POPULAR_API = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
 export const UPCOMING_API = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
 export const TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
+export const movieDetail_API = "https://api.themoviedb.org/3/movie/";

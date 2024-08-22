@@ -15,8 +15,8 @@ const RecommendationContainer = ({id}) => {
     // const trailerKey = useVideoTrailer(movieId);
     // useVideoTrailer(movieId);
 
-    return (
-        <div>
+    return !recommendedMovies ? <h1>Loading</h1> : (
+        <div className="">
             <MovieList movies={recommendedMovies} title={"Recommendations"} />
         </div>
     );

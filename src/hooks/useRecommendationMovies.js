@@ -12,12 +12,13 @@ const useRecommendationMovies = (movieId) => {
         setRecommendations(jsonData.results);
     }
 
-    useEffect(
-        () => {
-            fetchDetails();
-        }, 
-        []
-    );
+    useEffect(() => {
+        if (movieId) {
+            fetchDetails().catch((err) => {
+                console.log(err);
+            });
+        }
+    }, [movieId]);
 
     return recommendations;
 }

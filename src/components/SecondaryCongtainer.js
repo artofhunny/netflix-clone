@@ -12,7 +12,7 @@ const SecondaryContainer = () => {
     return (
         <section className="bg-black" >
             
-            <div className="mx-20 z-50 relative -mt-56 flex flex-col gap-10">
+            <div className="lg:mx-20 sm:mx-16 mx-2 z-50 relative -mt-8 lg:-mt-56 sm:-mt-48 flex flex-col gap-2 sm:gap-7 lg:gap-10">
                 <MovieList movies={movie} title={"Now Playing Movies"} />
                 <MovieList movies={topRated} title={"Top Rated Movies"} />
                 <MovieList movies={popular} title={"Popular Movies"} />
