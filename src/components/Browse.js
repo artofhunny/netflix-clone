@@ -10,6 +10,7 @@ import useUpcomingMovie from "../hooks/useUpcomingMovies";
 import useTopRated from "../hooks/useTopRated";
 import { Outlet, useLocation } from "react-router-dom";
 import Body from "./Body";
+import Footer from "./Footer";
 
 const Browse = () => {
 
@@ -22,12 +23,11 @@ const Browse = () => {
     useTopRated();
 
     return(
-        <div className="overflow-x-hidden bg-zinc-950 font-bold text-white">
+        <div className=" bg-zinc-950 font-bold text-white">
             <Header />
             <MainContainer />
             <SecondaryContainer />
-            {/* <Outlet /> */}
-            
+            <Footer />
         </div>
     );
 }

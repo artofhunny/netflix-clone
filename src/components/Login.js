@@ -30,7 +30,7 @@ const Login = () => {
         const message = dataValidation(password.current.value, email.current.value, (isSignIn) ? null : name.current.value);
 
         setErrorMessage(message);
-        if(errorMessage) return;
+        if(message) return;
 
         if(!isSignIn){
             // Sign up
@@ -85,7 +85,7 @@ const Login = () => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
 
-                    setErrorMessage(errorCode + errorMessage);
+                    setErrorMessage(errorMessage);
                 });
         }
 
@@ -105,28 +105,28 @@ const Login = () => {
 
                 <Header />
 
-                <div className="self-center px-3 py-4 sm:px-8 sm:py-12 lg:px-12 lg:py-16 flex flex-col self-start bg-opacity-75 gap-4 mt-20 sm:gap-5 lg:gap-8 bg-black">
-                    <p className=" font-bold text-xl sm:text-2xl lg:text-4xl text-white">
+                <div className="self-center px-3 py-4 sm:px-8 sm:py-12 rounded-xl py-2 px-2 lg:px-12 lg:py-16 flex flex-col self-start bg-opacity-75 gap-4 mt-20 sm:gap-5 lg:gap-8 bg-black">
+                    <p className=" font-bold text-2xl lg:text-4xl text-white">
                         {(isSignIn) ? "Sign In" : "Sign Up"}
                     </p>
                     {
                        !isSignIn && <input
                         type="text" 
                         ref={name}
-                        className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none sm:text-lg lg:text-xl sm:px-6 sm:py-1 lg:px-8 lg:py-2 text-white" 
+                        className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none text-lg lg:text-xl     px-6 py-1 lg:px-8 lg:py-2 text-white" 
                         placeholder="Full Name" 
                    />
                     }
                     <input
                          type="text"
                          ref={email}
-                         className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none sm:text-lg lg:text-xl sm:px-6 sm:py-1 lg:px-8 lg:py-2 text-white" 
+                         className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none text-lg lg:text-xl px-6 py-1 lg:px-8 lg:py-2 text-white" 
                          placeholder="Email" 
                     />
 
                     <input type="password" 
                         ref={password}
-                        className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none sm:text-lg lg:text-xl sm:px-6 sm:py-1 lg:px-8 lg:py-2 text-white" 
+                        className="bg-slate-700 border border-solid border-gray-100 border-opacity-45 rounded bg-opacity-60 outline-none text-lg lg:text-xl px-6 py-1 lg:px-8 lg:py-2 text-white" 
                         placeholder="Password" />
 
                     {
@@ -136,11 +136,11 @@ const Login = () => {
                         </p>
                     }
 
-                    <button className="text-white rounded font-bold sm:text-lg lg:text-xl sm:py-2 lg:py-4 bg-[#ff0000]">
+                    <button className="text-white rounded font-bold text-lg lg:text-xl py-2 lg:py-4 bg-[#ff0000]">
                         {(isSignIn) ? "Sign In" : "Sign Up"}
                     </button>
 
-                    <p className="text-white cursor-pointer text-xs sm:text-lg lg:text-lg" onClick={handelToggleForm} >
+                    <p className="text-white cursor-pointer  sm:text-lg lg:text-lg" onClick={handelToggleForm} >
                         {(isSignIn) ? "New to Netflix? Sign Up Now" : "Already regester? Sign In"}
                     </p>
                 </div>

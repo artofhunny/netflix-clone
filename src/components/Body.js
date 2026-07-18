@@ -11,7 +11,8 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./utils/firebase";
 import { addUser, removeUser } from "./utils/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Genre from "./Genre";
 
 const Body = ({route}) => {
 
@@ -35,6 +36,10 @@ const Body = ({route}) => {
     {
         path: '/wishlist',
         element: <WishList />
+    },
+    {
+      path: '/genre/:type',
+      element: <Genre />
     }
   ]);
 

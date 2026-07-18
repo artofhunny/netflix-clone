@@ -15,9 +15,9 @@ const VideoContainer = ({vidId}) => {
     return !trailor ? <h1 className="relative">Loading...</h1> : (
         <div className=" lg:m-auto">
             <iframe
-            // width="560" 
-            // height="315" 
-            className="w-full h-[60vh] sm:w-screen sm:aspect-video sm:h-auto lg:w-screen lg:aspect-video lg:h-auto -mt-5"
+            // width="560"
+            // height="315"
+            className="w-full h-[40vh] md:h-[60vh] sm:w-screen sm:aspect-video sm:h-auto lg:w-screen lg:aspect-video lg:h-auto -mt-5"
             src={"https://www.youtube.com/embed/" + trailor?.key + "?&autoplay=1&mute=1&loop=1&autopause=0"}
             title="YouTube video player" 
             // frameborder="0" 

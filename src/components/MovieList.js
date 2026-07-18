@@ -13,7 +13,7 @@ const MovieList = ({movies, title, setide}) => {
     
     return (
         <div className={`bg-black lg:bg-transparent ${location.pathname !== "/browse" && "flex flex-col items-center"}`}>
-            <h1 className={`lg:text-2xl lg:bg-transparent sm:text-2xl sm:bg-transparent py-2 font-bold ${location.pathname !== "/browse" && "pl-4"} text-white self-start`} >{title}</h1>
+            <h1 className={`lg:text-2xl lg:bg-transparent text-xl sm:text-2xl sm:bg-transparent py-2 font-bold ${location.pathname !== "/browse" && "pl-4"} text-white self-start`} >{title}</h1>
             <div className={`flex ${location.pathname === "/browse" && "overflow-x-scroll"} ${location.pathname !== "/browse" && "justify-center"} gap-2 scroll-hidden ` + changeCss}>
                 {
                     movies?.slice()?.reverse()?.map(movie => {
@@ -22,7 +22,7 @@ const MovieList = ({movies, title, setide}) => {
                 }
             </div>
         </div>
-    )
+    );
 }
 
 export default MovieList;

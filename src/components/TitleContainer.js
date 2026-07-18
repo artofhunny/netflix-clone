@@ -1,7 +1,7 @@
 const TitleContainer = ({title, des}) => {
     return (
         <div className="bg-gradient-to-r z-0 absolute flex from-black w-screen h-svh sm:h-auto sm:w-screen  sm:-mt-5 lg:h-auto lg:w-screen  lg:-mt-5 aspect-video ">
-            <div className="opacity-65 lg:mt-[14%] mt-[32%] flex flex-col items-center lg:ml-20 lg:justify-start w-full text-white lg:w-96">
+            <div className="opacity-65 lg:mt-[14%] mt-[32%] flex flex-col items-center lg:ml-20 lg:justify-start w-full text-white lg:w-[495px]">
                 <p className="lg:text-3xl sm:text-2xl font-bold w-40 text-center text-sm">{title}</p>
                 <p className="hidden lg:block mt-3 text-xs lg:text-sm">{des}</p>
                 <div className="lg:mt-5 mt-1">

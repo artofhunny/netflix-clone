@@ -10,7 +10,7 @@ const SecondaryContainer = () => {
     const topRated = useSelector((store) => store.movies.topRated);
     // console.log(popular);
     return (
-        <section className="bg-black" >
+        <section className="bg-black pb-10" >
             
             <div className="lg:mx-20 sm:mx-16 mx-2 z-50 relative -mt-8 lg:-mt-56 sm:-mt-48 flex flex-col gap-2 sm:gap-7 lg:gap-10">
                 <MovieList movies={movie} title={"Now Playing Movies"} />

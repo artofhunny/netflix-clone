@@ -13,6 +13,7 @@ import { v4 as uuidv4 } from 'uuid';  // Import uuid for unique IDs
 import Header from "./Header";
 import useMovieDetail from "../hooks/useMovieDetail";
 import { addplayingInPlayer, addRecommendedMovies } from "./utils/moviesSlice";
+import Footer from "./Footer";
 
 
 // import Header from "./Header";
@@ -24,11 +25,10 @@ const VideoTrailor = () => {
     const movieDetail = useMovieDetail(movieId);
     const userDetails = useSelector((store) => store?.user);
     const trailerKey = useVideoTrailer(movieId);
-    // const movieTitle = useSelector((store) => store.movies.playingInPlayer.title);
-    // console.log(movieTitle);
-    // const trailerKey = movieDetail.key;
-    // const id = movieDetail.id;
-    const navigate = useNavigate();
+
+    console.log(movieDetail);
+    
+    
     const [isAddedToWatchlist, setIsAddedToWatchlist] = useState(false);
     const [wishlist, setWishlist] = useState([]);
     
@@ -139,13 +139,13 @@ const VideoTrailor = () => {
             </div>
 
             <div className="flex justify-between items-center py-2 px-3 sm:py-4 sm:px-7 lg:py-6 lg:px-10">
-                <h1 className="lg:text-4xl sm:text-3xl font-bold">
+                <h1 className="lg:text-4xl text-2xl sm:text-3xl font-bold">
                     {movieDetail.title}
                     {/* {movieTitle} */}
                 </h1>
 
                 <div onClick={handelAddToWatchlist} className={`${isAddedToWatchlist? "text-green-600" : "text-white"} cursor-pointer flex text-xs sm:text-lg lg:text-xl items-center gap-1`}>
-                    <span className="material-symbols-outlined text-[16px] sm:text-2xl lg:text-3xl">
+                    <span className="material-symbols-outlined text-[16px] text-3xl lg:text-3xl">
                         {isAddedToWatchlist? "tab_close" : "library_add"}
                     </span>
                     {/* <span>{isAddedToWatchlist ? "Remove-From-Watchlist" : "Add-To-Watchlist"}</span> */}
@@ -157,6 +157,8 @@ const VideoTrailor = () => {
                 {/* <UserReviews /> */}
                 <ReviewsAndRecommendationContainer movieId={movieDetail.currentId} />
             </div>
+
+            <Footer />
 
         </section>
     );
